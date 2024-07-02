@@ -1,6 +1,6 @@
 import React from 'react'
 
-const tutor_dashboard = () => {
+const Tutor_dashboard = () => {
   return (
     <div className="container">
         
@@ -8,4 +8,4 @@ const tutor_dashboard = () => {
   )
 }
 
-export default tutor_dashboard
+export default Tutor_dashboard

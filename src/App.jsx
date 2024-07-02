@@ -4,18 +4,14 @@ import './App.css'
 import Navbar from './components/navbar'
 import Login from './pages/login/login.jsx'
 import Student_dashboard from './pages/student/student_dashboard.jsx'
+import HomePage from './pages/homepage/homepage.jsx'
 
 
 function App() {
   
 
   return (
-    
-
- <Student_dashboard></Student_dashboard>
-    
-
-    
+<HomePage></HomePage>
   )
 }
 

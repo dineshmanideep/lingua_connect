@@ -6,6 +6,7 @@ const app = express()
 const port = 3000
 const url = 'mongodb://localhost:27017/linguaconnect';
 app.use(express.json());
+app.use(cors());
 // const client = new MongoClient(url);
 // client.connect()
 mongoose.connect(url, {

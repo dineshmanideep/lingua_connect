@@ -15,14 +15,14 @@ export const Signup = async (req, res, next) => {
 
   if(role=="student"){
     try {
-      const {name,email,role,password } = req.body;
+      const {email,password } = req.body;
       const existingUser = await student.findOne({ email });
       if (existingUser) {
         return res.json({ message: "User already exists" });
       }
-      password = await bcrypt.hash(password, 12);
-      const user = await student.create({name,email,role ,password });
-      const token = generateToken(student._id);
+      const hashedpassword = await bcrypt.hash(password, 10);
+      const user = await student.create({email,role ,password:hashedpassword });
+      const token = generateToken(user);
    
 
       
@@ -31,8 +31,7 @@ export const Signup = async (req, res, next) => {
       //   httpOnly: false,
       // });
       res
-        .status(201)
-        .json({ message: "User signed in successfully", success: true, user });
+        .json({ message: "User signed in successfully", success: true,role:user.role, user });
       next();
     } catch (error) {
       console.error(error);
@@ -41,7 +40,7 @@ export const Signup = async (req, res, next) => {
     }
     else if(role=="tutor"){
       try {
-        const {name,email,role,password } = req.body;
+        const {email,role,password } = req.body;
         const existingUser = await tutor.findOne({ email });
         if (existingUser) {
           return res.json({ message: "User already exists" });
@@ -49,8 +48,8 @@ export const Signup = async (req, res, next) => {
     
         const hashedpassword = await bcrypt.hash(password,10);
         
-        const user = await tutor.create({name,email,role,password:hashedpassword });
-        const token = generateToken(user._id);
+        const user = await tutor.create({email,role,password:hashedpassword });
+        const token = generateToken(user);
       
   
         
@@ -59,8 +58,7 @@ export const Signup = async (req, res, next) => {
         //   httpOnly: false,
         // });
         res
-          .status(201)
-          .json({ message: "User signed in successfully", success: true, user });
+          .json({ message: "User signed in successfully", success: true,role:user.role, user });
         // next();
       } catch (error) {
         console.error(error);
@@ -105,7 +103,7 @@ let user;
 //   withCredentials: true,
 //   httpOnly: false,
 // });
-res.status(201).json({ message: "User logged in successfully", success: true });
+res.status(201).json({ message: "User logged in successfully", success: true ,role:user.role,});
 // next()
 } catch (error) {
 console.error(error);

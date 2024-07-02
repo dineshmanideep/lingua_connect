@@ -10,7 +10,8 @@ import {
 import Login from './pages/login/login.jsx';
 import Profile from './pages/student/profile.jsx';
 import Student_dashboard from './pages/student/student_dashboard.jsx';
-
+import Signup from './pages/signup/Signup.jsx';
+import Tutor_dashboard from './pages/tutor/tutor_dashboard.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +20,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,
+    element:<Login/>,
+   
+  },
+  {
+    path: "/Signup",
+    element:<Signup/>,
    
   },
   {
@@ -34,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/tutor",
-    element: < tutor_dashboard/>,
+    element: < Tutor_dashboard/>,
    
   },
   {
