@@ -8,7 +8,8 @@ const student_schema = new Schema({
   "email": String,
   "date": { type: Date, default: Date.now },
   "role":String,
-  "password":String
+  "password":String,
+  "refresh_token":String
 
 });
 export  const  student = mongoose.model( 'student_model', student_schema);

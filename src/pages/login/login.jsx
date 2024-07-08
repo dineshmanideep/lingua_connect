@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-const Login = () => {
+import { auth_context, Authprovider } from '../../context/authprovider.jsx';
+// import { useAuth } from '../../hooks/useAuth.js';
+const Login = (auth,setauth) => {
     const navigate = useNavigate();
+    // const [auth,setauth]=useAuth({});
     const [form, setform] = useState({
         email: '',
         role: '',
         password: ''
     });
 
+
+ 
 
 
 
@@ -22,6 +26,7 @@ const Login = () => {
 
 
     const handleSubmit = async (e) => {
+        // const [auth,setauth]=useAuth();
 
         // Handle form submission, e.g., send data to an API
         //post to an api the form details
@@ -44,9 +49,15 @@ const Login = () => {
                 throw new Error('something went wrong')
             }
             const result=await res.json();
-            const {message,success,role}=result;
+            const {message,acess_token,success,role}=result;
             console.log(result);
-            if(success){   
+            if(success){  
+               setauth({
+                    acess_token:acess_token,
+                    role:role
+                })
+                
+                
                 if(role=="student"){    
                      navigate("/student")
                 }

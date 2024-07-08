@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
  import { useNavigate } from 'react-router-dom';
 
+
 const Signup = () => {
     const navigate = useNavigate();
     const [form, setform] = useState({

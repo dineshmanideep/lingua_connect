@@ -2,7 +2,7 @@ import React from 'react'
 import { Form } from 'react-router-dom'
 
 import Navbar from '../../components/navbar'
-
+import { auth_context } from '../../context/authprovider';
 
 const Profile = () => {
     return (<>

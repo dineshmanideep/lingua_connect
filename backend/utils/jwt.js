@@ -1,6 +1,7 @@
 // utils/jwt.js
 import  jwt from 'jsonwebtoken';
-const secret = 'your_jwt_secret'; // Replace with your secret
+const refresh_secret = '1234refrehtoken'; 
+const acess_secret = '1234accesstoken'; 
 
 export const generateToken = (user) => {
   const payload = { id: user._id, email: user.email, role: user.role };

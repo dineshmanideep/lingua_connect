@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
-
+import { auth_context } from '../../context/authprovider';
 const Student_dashboard = () => {
     return (<>
        

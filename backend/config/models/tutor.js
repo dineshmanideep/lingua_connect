@@ -9,7 +9,7 @@ const teacher_schema = new Schema({
   "email":String,
   "fees": Number,
   "date": { type: Date, default: Date.now },
-  
+  "refresh_token":String,
   "role": String,
   "password":String
 
