@@ -116,7 +116,7 @@ let user;
    secure:true,
    maxAge: 24 * 60 * 60 * 1000,
  });
-res.status(201).json({ message: "User logged in successfully",acess_token:acess_token, success: true ,role:user.role,});
+res.status(201).json({ message: "User logged in successfully",acess_token:acess_token, success: true ,role:user.role,user:user});
 // next()
 } catch (error) {
 console.error(error);

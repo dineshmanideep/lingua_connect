@@ -3,11 +3,11 @@ const { Schema } = mongoose;
 
 const student_schema = new Schema({
   "name": String, 
-  "age": String,
-  "lang": String,
+  "native": String,
   "email": String,
   "date": { type: Date, default: Date.now },
   "role":String,
+  "description":String,
   "password":String,
   "refresh_token":String
 

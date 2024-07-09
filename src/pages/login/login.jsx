@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { auth_context, Authprovider } from '../../context/authprovider.jsx';
-// import { useAuth } from '../../hooks/useAuth.js';
-const Login = (auth,setauth) => {
+import { auth_context } from '../../context/authprovider.jsx';
+import { UserContext } from '../../context/userprovider.jsx';
+
+const Login = () => {
     const navigate = useNavigate();
-    // const [auth,setauth]=useAuth({});
+    const {auth, setauth} = useContext(auth_context);
+    const {user,setUser}=useContext(UserContext)
     const [form, setform] = useState({
         email: '',
         role: '',
@@ -49,12 +51,15 @@ const Login = (auth,setauth) => {
                 throw new Error('something went wrong')
             }
             const result=await res.json();
-            const {message,acess_token,success,role}=result;
+            const {message,acess_token,success,role,user}=result;
             console.log(result);
             if(success){  
                setauth({
                     acess_token:acess_token,
                     role:role
+                })
+                setUser({
+                     ...user
                 })
                 
                 

@@ -2,6 +2,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import { Signup,login } from './controllers/Authcontrollers.js'
+import {updatecontroller} from './controllers/updatecontroller.js'
+import { tutor_data } from './controllers/datacontroller.js'
 const app = express()
 const port = 3000
 const url = 'mongodb://localhost:27017/linguaconnect';
@@ -25,7 +27,8 @@ app.get('/', (req, res) => {
 
 app.post('/register',Signup)
 app.post('/login',login)
-
+app.post('/update',updatecontroller)
+app.get('/tutors',tutor_data)
 
 
 

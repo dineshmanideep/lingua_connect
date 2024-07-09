@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   return (
@@ -6,8 +7,8 @@ const HomePage = () => {
   <div className="nav flex justify-end py-6 px-4 text-3xl gap-12">
     {/* rediret to /login on click */}
 
-    <button className='p-4  bg-blue-700 rounded-xl'  > <a href="/login">Login</a> </button>
-    <button className='p-4  bg-blue-700 rounded-xl' ><a href="/Signup">Sign Up</a></button>
+    <button className='p-4  bg-blue-700 rounded-xl'  > <Link to="/login">Login</Link> </button>
+    <button className='p-4  bg-blue-700 rounded-xl' ><Link to="/Signup">Sign Up</Link></button>
 
   </div>
 

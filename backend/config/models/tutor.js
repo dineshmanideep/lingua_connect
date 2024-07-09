@@ -2,16 +2,15 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const teacher_schema = new Schema({
-  "name":      String,
-  "experience":Number,
-  "age": String,
+  "name":String,
   "language": String,
   "email":String,
-  "fees": Number,
   "date": { type: Date, default: Date.now },
   "refresh_token":String,
+  "description":String,
   "role": String,
-  "password":String
+  "password":String,
+  "native":String,
 
 });
 
